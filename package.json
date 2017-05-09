@@ -6,7 +6,7 @@
   "author": "kittipong",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack && node server.js",
     "dev": "webpack"
   },
   "dependencies": {
