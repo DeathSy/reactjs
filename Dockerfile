@@ -1,12 +1,25 @@
-FROM node:7.10.0
+FROM node:7.10.0-alpine
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN apk add --no-cache build-base
 
-COPY package.json /usr/src/app
-RUN npm install
+## cache node modules
+ADD ./package.json /tmp/package.json
+RUN cd /tmp && npm install
+RUN mkdir -p /app/src && cp -a /tmp/node_modules /app/
 
-COPY . /usr/src/app
+## copy meta
+WORKDIR /app
+ADD ./package.json /app/package.json
+
+## build
+WORKDIR /app
+ADD ./src /app/src
+ADD ./dist /app/dist
+ADD ./server.js /app/server.js
+ADD ./.babelrc /app/.babelrc
+ADD ./webpack.config.js /app/webpack.config.js
+
+WORKDIR /app
 
 EXPOSE 8080
 
