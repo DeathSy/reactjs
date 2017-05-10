@@ -64,4 +64,7 @@ typings/
 #public directories
 /dist
 
+#configuration file
+config.js
+
 # End of https://www.gitignore.io/api/node
