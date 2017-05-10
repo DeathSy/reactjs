@@ -1,1 +1,11 @@
-build: .
+version: "3"
+
+services:
+  
+  reactjs:
+    build: .
+  
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
