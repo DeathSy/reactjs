@@ -17,6 +17,7 @@ ADD ./src /app/src
 ADD ./server.js /app/server.js
 ADD ./.babelrc /app/.babelrc
 ADD ./webpack.config.js /app/webpack.config.js
+ADD ./config.js /app/config.js
 
 WORKDIR /app
 
