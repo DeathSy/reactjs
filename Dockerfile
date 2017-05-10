@@ -14,7 +14,6 @@ ADD ./package.json /app/package.json
 ## build
 WORKDIR /app
 ADD ./src /app/src
-ADD ./dist /app/dist
 ADD ./server.js /app/server.js
 ADD ./.babelrc /app/.babelrc
 ADD ./webpack.config.js /app/webpack.config.js
