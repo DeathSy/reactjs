@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const config = require('./config');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
@@ -13,7 +14,7 @@ module.exports = {
   },
   output: {
     path: path.resolve('./dist'),
-    publicPath: 'http://localhost',
+    publicPath: `http://${config.hostName}`,
     filename: 'js/[name].js'
   },
   module: {
